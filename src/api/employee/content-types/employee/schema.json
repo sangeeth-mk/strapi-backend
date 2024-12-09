@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "employees",
+  "info": {
+    "singularName": "employee",
+    "pluralName": "employees",
+    "displayName": "Employee",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "password": {
+      "type": "password",
+      "required": true
+    },
+    "role": {
+      "type": "enumeration",
+      "enum": [
+        "admin",
+        "user"
+      ],
+      "default": "user",
+      "enumName": "user",
+      "required": true
+    },
+    "leave_requests": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::leave-request.leave-request",
+      "mappedBy": "employee"
+    },
+    "records": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::record.record",
+      "mappedBy": "employee"
+    }
+  }
+}

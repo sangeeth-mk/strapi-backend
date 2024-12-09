@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "records",
+  "info": {
+    "singularName": "record",
+    "pluralName": "records",
+    "displayName": "Record",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user_id": {
+      "type": "integer",
+      "required": false
+    },
+    "check_in": {
+      "type": "datetime",
+      "default": "2024-12-08T04:00:00.000Z",
+      "required": true
+    },
+    "check_out": {
+      "type": "datetime",
+      "default": "2024-12-07T18:30:00.000Z",
+      "required": true
+    },
+    "break_start": {
+      "type": "datetime",
+      "default": "2024-12-07T18:30:00.000Z"
+    },
+    "break_end": {
+      "type": "datetime",
+      "default": "2024-12-07T18:30:00.000Z"
+    },
+    "employee": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::employee.employee",
+      "inversedBy": "records"
+    }
+  }
+}

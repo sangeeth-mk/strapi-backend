@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "leave_requests",
+  "info": {
+    "singularName": "leave-request",
+    "pluralName": "leave-requests",
+    "displayName": "LeaveRequest"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "employee": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::employee.employee",
+      "inversedBy": "leave_requests"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "sick",
+        "vacation",
+        "personal"
+      ],
+      "default": "personal",
+      "required": true
+    },
+    "start_date": {
+      "type": "date",
+      "required": true
+    },
+    "end_date": {
+      "type": "date",
+      "required": true
+    },
+    "CurrentStatus": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ]
+    }
+  }
+}
